@@ -32,8 +32,9 @@ class App extends Component {
 
   }
   deleteMonster = (name) => {
+    console.log('delete monster run')
     axios
-      .delete(BASE_URL + `/monsters?name=${name}`)
+      .delete(BASE_URL + `/monsters/${name}`)
       .then(response => {
         this.setState({ monsters: response.data })
       })
@@ -48,7 +49,7 @@ class App extends Component {
               <h1>{monster.name}</h1>
               <div>{monster.scary.level}</div>
               <img src={monster.image_url} />
-              <button onClick={(e) => { this.deleteMonster }}>Delete</button>
+              <button onClick={() => { this.deleteMonster(monster.name) }}>Delete</button>
             </div>
           )
         })}

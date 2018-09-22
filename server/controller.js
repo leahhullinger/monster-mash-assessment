@@ -29,6 +29,7 @@ module.exports = {
     const { name } = req.params;
     const updatedCreatures = creatures.filter((creature, name) => creature.name !== name)
 
+
     updatedCreatures = creatures;
     res.status(200).send(creatures)
 
