@@ -27,14 +27,9 @@ module.exports = {
 
   delete: (req, res) => {
     const { name } = req.params;
-    const updatedMonsters = creatures.filter(monster => {
-      return (monster.name !== name);
+    const updatedCreatures = creatures.filter((creature, name) => creature.name !== name)
 
-    }
-
-    )
-    updatedMonsters = creatures;
-
+    updatedCreatures = creatures;
     res.status(200).send(creatures)
 
   }
