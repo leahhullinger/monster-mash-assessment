@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './add-monster-form.css'
 
 class AddMonsterForm extends Component {
   constructor(props) {
@@ -33,18 +34,22 @@ class AddMonsterForm extends Component {
     })
   }
 
+
   render() {
     return (
       <div className="form-container">
-        <label>Name</label>
-        <input placeholder="name" value={this.state.name} onChange={this.handleNameChange}></input>
-        <label>Image</label>
-        <input placeholder="image-url" value={this.state.image_url} onChange={this.handleImageChange}></input>
-        <label>Scare Level</label>
-        <input placeholder="scare-level" value={this.state.scary.level} onChange={this.handleScareChange}></input>
+        <div className="inputs-container">
+          <label>Name</label>
+          <input placeholder="name" value={this.state.name} onChange={this.handleNameChange}></input>
+          <label>Image</label>
+          <input placeholder="image-url" value={this.state.image_url} onChange={this.handleImageChange}></input>
+          <label>Scare Level</label>
+          <input placeholder="scare-level" value={this.state.scary.level} onChange={this.handleScareChange}></input>
+        </div>
+        <br />
         <button onClick={this.handleButtonClick}>Add Monster</button>
 
-      </div>
+      </div >
     )
   }
 }

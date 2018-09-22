@@ -23,13 +23,20 @@ class App extends Component {
       })
   }
 
-  AddMonster = (monster) => {
+  addMonster = (monster) => {
     axios
       .post(BASE_URL + '/monsters', monster)
       .then(response => {
         this.setState({ monsters: response.data })
       })
 
+  }
+  deleteMonster = (name) => {
+    axios
+      .delete(BASE_URL + `/monsters?name=${name}`)
+      .then(response => {
+        this.setState({ monsters: response.data })
+      })
   }
 
   render() {
@@ -41,11 +48,11 @@ class App extends Component {
               <h1>{monster.name}</h1>
               <div>{monster.scary.level}</div>
               <img src={monster.image_url} />
-              <button>Delete</button>
+              <button onClick={(e) => { this.deleteMonster }}>Delete</button>
             </div>
           )
         })}
-        <AddMonsterForm addMonster={this.AddMonster} />
+        <AddMonsterForm addMonster={this.addMonster} />
 
 
       </div >
